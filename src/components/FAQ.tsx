@@ -1,37 +1,38 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Plus, Minus } from 'lucide-react';
+import BackgroundGrid from './BackgroundGrid';
 
 const FAQ = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   const faqs = [
     {
-      question: "How quickly can CyberGuard AI be deployed in my business?",
-      answer: "CyberGuard AI can be fully deployed in under 24 hours. Our automated setup process handles 95% of the configuration, while our experts fine-tune the remaining settings for your specific business needs. Most clients are fully protected within 2-4 hours of signup."
+      question: "How quickly can DEG Shield AI be deployed in my business?",
+      answer: "DEG Shield AI can be fully deployed in under 24 hours. Our automated setup process handles 95% of the configuration, while our experts fine-tune the remaining settings for your specific business needs. Most clients are fully protected within 2-4 hours of signup."
     },
     {
-      question: "Do I need a dedicated IT team to manage CyberGuard AI?",
-      answer: "No. CyberGuard AI is designed to be completely autonomous. The AI handles threat detection, response, and system maintenance automatically. You'll receive clear, non-technical reports and alerts, but no day-to-day management is required from your team."
+      question: "Do I need a dedicated IT team to manage DEG Shield AI?",
+      answer: "No. DEG Shield AI is designed to be completely autonomous. The AI handles threat detection, response, and system maintenance automatically. You'll receive clear, non-technical reports and alerts, but no day-to-day management is required from your team."
     },
     {
       question: "What happens if a threat is detected?",
-      answer: "When a threat is detected, CyberGuard AI responds within 30 seconds with automatic containment and neutralization. You'll receive an immediate alert with a plain-English explanation of what happened and what actions were taken. Our team is also notified for any advanced threats requiring human analysis."
+      answer: "When a threat is detected, DEG Shield AI responds within 30 seconds with automatic containment and neutralization. You'll receive an immediate alert with a plain-English explanation of what happened and what actions were taken. Our team is also notified for any advanced threats requiring human analysis."
     },
     {
       question: "How does pricing work as my business grows?",
       answer: "Our pricing scales with your business size based on the number of endpoints (devices) you need to protect. You can easily upgrade or downgrade your plan at any time. We also offer volume discounts for larger deployments and custom enterprise pricing for 500+ endpoints."
     },
     {
-      question: "Is my business data safe with CyberGuard AI?",
-      answer: "Absolutely. CyberGuard AI uses zero-trust architecture and encrypts all data both in transit and at rest. We're SOC 2 Type II certified, ISO 27001 compliant, and GDPR ready. Your data never leaves your network unless you explicitly configure cloud backups."
+      question: "Is my business data safe with DEG Shield AI?",
+      answer: "Absolutely. DEG Shield AI uses zero-trust architecture and encrypts all data both in transit and at rest. We're SOC 2 Type II certified, ISO 27001 compliant, and GDPR ready. Your data never leaves your network unless you explicitly configure cloud backups."
     },
     {
       question: "What's included in the 30-day money-back guarantee?",
       answer: "If you're not completely satisfied within 30 days, we'll provide a full refund, no questions asked. We'll also help you migrate to another solution if needed. Our goal is your complete satisfaction and security, not just a sale."
     },
     {
-      question: "Can CyberGuard AI integrate with my existing systems?",
-      answer: "Yes. CyberGuard AI integrates with virtually all business applications, cloud services, and existing security tools. Our platform includes pre-built integrations for Office 365, Google Workspace, AWS, Azure, Salesforce, and hundreds of other business applications."
+      question: "Can DEG Shield AI integrate with my existing systems?",
+      answer: "Yes. DEG Shield AI integrates with virtually all business applications, cloud services, and existing security tools. Our platform includes pre-built integrations for Office 365, Google Workspace, AWS, Azure, Salesforce, and hundreds of other business applications."
     },
     {
       question: "What kind of support do you provide?",
@@ -40,14 +41,15 @@ const FAQ = () => {
   ];
 
   return (
-    <section className="py-20 bg-gray-900">
+    <section id="faq" className="relative py-20 overflow-hidden bg-gray-900">
+      <BackgroundGrid withGradient={true} withBlobs={false} />
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-white mb-4">
             Frequently Asked <span className="text-blue-400">Questions</span>
           </h2>
           <p className="text-xl text-gray-300">
-            Get answers to the most common questions about CyberGuard AI
+            Get answers to the most common questions about DEG Shield AI
           </p>
         </div>
 

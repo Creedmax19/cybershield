@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Shield, AlertTriangle, CheckCircle, Zap, Eye, Brain, Play, Pause } from 'lucide-react';
+import { Shield, Eye, Zap, AlertTriangle, CheckCircle, Play, Pause, Brain } from 'lucide-react';
 
 type DemoStep = {
   title: string;
@@ -84,32 +84,20 @@ const Demo = () => {
 
   return (
     <section id="demo" className="relative py-20 overflow-hidden bg-gray-900">
-      {/* Background Grid */}
+      {/* Subtle gradient background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900"></div>
+      
+      {/* Floating elements */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-grid"></div>
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/40 via-transparent to-blue-900/40"></div>
-        {/* Animated Blobs */}
-        <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl animate-blob animation-delay-2000"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-[32rem] h-[32rem] bg-cyan-400/10 rounded-full blur-3xl animate-blob animation-delay-1000"></div>
+        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-blue-500/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-400/5 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-128 h-128 bg-emerald-500/3 rounded-full blur-3xl"></div>
       </div>
-      <style jsx>{`
-        .bg-grid {
-          background-image: linear-gradient(to right, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
-                            linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
-          background-size: 40px 40px;
-          opacity: 0.3;
-        }
-        @media (max-width: 640px) {
-          .bg-grid {
-            background-size: 30px 30px;
-          }
-        }
-      `}</style>
       
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-white mb-4">
-            See CyberGuard AI <span className="text-blue-400">In Action</span>
+            See DEG Shield AI <span className="text-blue-400">In Action</span>
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
             Watch our AI agent detect, analyze, and neutralize a real cyber threat in under 30 seconds.
@@ -134,7 +122,7 @@ const Demo = () => {
           <div className="relative">
             <div className="bg-gray-900/80 backdrop-blur-sm border border-gray-700 rounded-3xl p-8">
               <div className="flex items-center justify-between mb-6">
-                <h3 className="text-xl font-semibold text-white">CyberGuard AI Dashboard</h3>
+                <h3 className="text-xl font-semibold text-white">DEG Shield AI Dashboard</h3>
                 <div className="flex items-center space-x-2">
                   <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
                   <span className="text-green-400 text-sm">Live Protection</span>

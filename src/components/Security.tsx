@@ -1,4 +1,3 @@
-import React from 'react';
 import { Shield, CheckCircle, AlertCircle, TrendingUp } from 'lucide-react';
 
 const Security = () => {
@@ -12,12 +11,46 @@ const Security = () => {
   ];
 
   return (
-    <section id="security" className="py-20 bg-gradient-to-br from-gray-800 to-gray-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="security" className="relative py-24 overflow-hidden bg-gray-900">
+      {/* Enhanced Grid Background */}
+      <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 bg-grid opacity-30"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-900/85 via-gray-900/60 to-gray-900/85"></div>
+        
+        {/* Grid Container */}
+        <div className="absolute inset-0">
+          {/* Vertical Lines */}
+          <div className="absolute inset-0 flex justify-between">
+            {[...Array(25)].map((_, i) => (
+              <div key={`v-${i}`} className="h-full w-px bg-blue-500/10"></div>
+            ))}
+          </div>
+          
+          {/* Horizontal Lines */}
+          <div className="absolute inset-0 flex flex-col justify-between">
+            {[...Array(25)].map((_, i) => (
+              <div key={`h-${i}`} className="w-full h-px bg-blue-500/10"></div>
+            ))}
+          </div>
+        </div>
+        
+        {/* Animated grid lines */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-blue-400/30 to-transparent animate-moveRight"></div>
+          <div className="absolute top-0 left-0 bottom-0 w-[1px] bg-gradient-to-b from-transparent via-blue-400/30 to-transparent animate-moveDown"></div>
+        </div>
+        
+        {/* Corner accents */}
+        <div className="absolute top-0 left-0 w-32 h-32 border-t-2 border-l-2 border-blue-500/20 rounded-tl-lg"></div>
+        <div className="absolute top-0 right-0 w-32 h-32 border-t-2 border-r-2 border-blue-500/20 rounded-tr-lg"></div>
+        <div className="absolute bottom-0 left-0 w-32 h-32 border-b-2 border-l-2 border-blue-500/20 rounded-bl-lg"></div>
+        <div className="absolute bottom-0 right-0 w-32 h-32 border-b-2 border-r-2 border-blue-500/20 rounded-br-lg"></div>
+      </div>
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Left side - Security dashboard mockup */}
           <div className="relative">
-            <div className="bg-gray-900/80 backdrop-blur-sm border border-gray-700 rounded-3xl p-6">
+            <div className="bg-gray-900/50 backdrop-blur-sm border border-gray-700/30 rounded-3xl p-6 hover:border-blue-500/50 hover:shadow-lg hover:shadow-blue-500/5 transition-all duration-300">
               <div className="flex items-center justify-between mb-6">
                 <h3 className="text-xl font-semibold text-white">Security Dashboard</h3>
                 <div className="flex items-center space-x-2">
@@ -97,14 +130,46 @@ const Security = () => {
                 <li>• Average ransomware payment: $812,000</li>
                 <li>• Business downtime: 22 days average</li>
                 <li>• Customer trust lost: 60% never return</li>
-                <li>• Compliance fines: Up to $4.35M per breach</li>
+                <li>• Compliance fines: Up to €10M or 2% of global turnover under GDPR</li>
               </ul>
             </div>
 
-            <button className="bg-gradient-to-r from-blue-500 to-cyan-400 text-white px-8 py-4 rounded-full font-semibold text-lg hover:from-blue-600 hover:to-cyan-500 transition-all duration-200 flex items-center">
-              Get Protection Now
-              <Shield className="ml-2 h-5 w-5" />
-            </button>
+            <div className="space-y-8">
+              <button className="bg-gradient-to-r from-blue-500 to-cyan-400 text-white px-8 py-4 rounded-full font-semibold text-lg hover:from-blue-600 hover:to-cyan-500 transition-all duration-200 flex items-center">
+                Get Protection Now
+                <Shield className="ml-2 h-5 w-5" />
+              </button>
+              
+              <div className="bg-gray-800/50 rounded-2xl p-6">
+                <h4 className="text-lg font-semibold text-white mb-4">EU & German Compliance</h4>
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="flex items-center">
+                    <CheckCircle className="h-5 w-5 text-green-400 mr-2" />
+                    <span className="text-gray-300">NIS2 Compliant</span>
+                  </div>
+                  <div className="flex items-center">
+                    <CheckCircle className="h-5 w-5 text-green-400 mr-2" />
+                    <span className="text-gray-300">GDPR Certified</span>
+                  </div>
+                  <div className="flex items-center">
+                    <CheckCircle className="h-5 w-5 text-green-400 mr-2" />
+                    <span className="text-gray-300">ISO 27001:2022</span>
+                  </div>
+                  <div className="flex items-center">
+                    <CheckCircle className="h-5 w-5 text-green-400 mr-2" />
+                    <span className="text-gray-300">BSI Standards</span>
+                  </div>
+                  <div className="flex items-center">
+                    <CheckCircle className="h-5 w-5 text-green-400 mr-2" />
+                    <span className="text-gray-300">C5:2020</span>
+                  </div>
+                  <div className="flex items-center">
+                    <CheckCircle className="h-5 w-5 text-green-400 mr-2" />
+                    <span className="text-gray-300">IT-SiG 2.0</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

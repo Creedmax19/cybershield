@@ -1,0 +1,79 @@
+{
+  "header": {
+    "home": "Home",
+    "features": "Features",
+    "demo": "Demo",
+    "testimonials": "Testimonials",
+    "security": "Security"
+  },
+  "hero": {
+    "tagline": "AI-Powered Cybersecurity",
+    "title": {
+      "line1": "Protect Your Business with",
+      "line2": "Intelligent AI Security"
+    },
+    "subtitle": "Deploy enterprise-grade cybersecurity in minutes. Our AI agent continuously monitors, detects, and neutralizes threats while you focus on growing your business.",
+    "cta1": "Start Free Trial",
+    "cta2": "Watch Demo"
+  },
+  "features": {
+    "title": "Why Choose Us",
+    "subtitle": "Comprehensive security solutions tailored to your needs",
+    "items": [
+      {
+        "title": "AI-Powered Threat Detection",
+        "description": "Advanced machine learning algorithms identify and neutralize threats in real-time, learning from global attack patterns."
+      },
+      {
+        "title": "Instant Response System",
+        "description": "Automated incident response within 30 seconds. Block attacks before they can cause damage to your systems."
+      },
+      {
+        "title": "24/7 Monitoring",
+        "description": "Continuous surveillance of your network, endpoints, and cloud infrastructure with zero downtime."
+      },
+      {
+        "title": "Zero-Trust Architecture",
+        "description": "Implement enterprise-grade zero-trust security policies with intelligent access controls."
+      },
+      {
+        "title": "Threat Intelligence",
+        "description": "Real-time threat intelligence from global cybersecurity networks and government agencies."
+      },
+      {
+        "title": "Behavioral Analysis",
+        "description": "Advanced user and entity behavior analytics to detect insider threats and anomalous activities."
+      },
+      {
+        "title": "Network Security",
+        "description": "Comprehensive network protection with intrusion detection and prevention systems."
+      },
+      {
+        "title": "Compliance Ready",
+        "description": "Built-in compliance frameworks for GDPR, HIPAA, SOC 2, and other industry standards."
+      }
+    ]
+  },
+  "testimonials": {
+    "title": "What Our Clients Say",
+    "subtitle": "Trusted by security teams worldwide"
+  },
+  "security": {
+    "title": "Enterprise-Grade Security",
+    "subtitle": "Built with the highest security standards in mind"
+  },
+  "footer": {
+    "company": {
+      "name": "DEG Shield AI",
+      "description": "A product of DEG Security GmbH"
+    },
+    "about": "Cybersecurity solutions for German and European companies, ensuring compliance with NIS2, GDPR, and German security standards.",
+    "product": "Product",
+    "companyMenu": "Company",
+    "resources": "Resources",
+    "contact": "Contact",
+    "rights": "All rights reserved.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service"
+  }
+}

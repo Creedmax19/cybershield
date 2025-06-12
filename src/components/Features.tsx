@@ -45,20 +45,48 @@ const Features = () => {
   ];
 
   return (
-    <section id="features" className="relative py-24 overflow-hidden">
-      {/* Background image with overlay */}
-      <div className="absolute inset-0">
-        <div 
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage: 'url(https://static.vecteezy.com/system/resources/previews/002/256/757/non_2x/futuristic-technology-background-vector.jpg)'
-          }}
-        >
-          <div className="absolute inset-0 bg-gradient-to-b from-gray-900/90 via-gray-900/70 to-gray-900/90"></div>
+    <section id="features" className="relative py-24 overflow-hidden bg-gray-900">
+      {/* Enhanced Grid Background */}
+      <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 bg-grid opacity-30"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-900/85 via-gray-900/60 to-gray-900/85"></div>
+        
+        {/* Grid Container */}
+        <div className="absolute inset-0">
+          {/* Vertical Lines */}
+          <div className="absolute inset-0 flex justify-between">
+            {[...Array(25)].map((_, i) => (
+              <div key={`v-${i}`} className="h-full w-px bg-blue-500/10"></div>
+            ))}
+          </div>
+          
+          {/* Horizontal Lines */}
+          <div className="absolute inset-0 flex flex-col justify-between">
+            {[...Array(25)].map((_, i) => (
+              <div key={`h-${i}`} className="w-full h-px bg-blue-500/10"></div>
+            ))}
+          </div>
         </div>
+        
+        {/* Animated grid lines */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-blue-400/30 to-transparent animate-moveRight"></div>
+          <div className="absolute top-0 left-0 bottom-0 w-[1px] bg-gradient-to-b from-transparent via-blue-400/30 to-transparent animate-moveDown"></div>
+        </div>
+        
+        {/* Corner accents */}
+        <div className="absolute top-0 left-0 w-32 h-32 border-t-2 border-l-2 border-blue-500/20 rounded-tl-lg"></div>
+        <div className="absolute top-0 right-0 w-32 h-32 border-t-2 border-r-2 border-blue-500/20 rounded-tr-lg"></div>
+        <div className="absolute bottom-0 left-0 w-32 h-32 border-b-2 border-l-2 border-blue-500/20 rounded-bl-lg"></div>
+        <div className="absolute bottom-0 right-0 w-32 h-32 border-b-2 border-r-2 border-blue-500/20 rounded-br-lg"></div>
+        
+        {/* Floating elements */}
+        <div className="absolute top-1/4 -left-20 w-64 h-64 bg-blue-500/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-cyan-400/5 rounded-full blur-3xl"></div>
       </div>
       
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
+        {/* Section header */}
         <div className="text-center mb-20">
           <span className="inline-block px-3 py-1 bg-blue-900/30 text-blue-400 text-sm font-medium rounded-full mb-4">
             Why Choose Us
@@ -79,7 +107,7 @@ const Features = () => {
               key={index}
               className="h-full"
             >
-              <div className="group relative bg-gray-800/40 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-8 overflow-hidden transition-all duration-500 hover:border-blue-500/30 hover:shadow-2xl hover:shadow-blue-500/10 h-full">
+              <div className="group relative bg-gray-800/30 backdrop-blur-sm border border-gray-700/30 rounded-2xl p-8 overflow-hidden transition-all duration-500 hover:border-blue-500/50 hover:shadow-2xl hover:shadow-blue-500/5 h-full">
                 {/* Light ray effect */}
                 <div className="absolute top-0 right-0 w-40 h-40 -mr-16 -mt-16 overflow-hidden">
                   {[...Array(5)].map((_, i) => (

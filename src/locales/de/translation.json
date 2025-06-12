@@ -1,0 +1,79 @@
+{
+  "header": {
+    "home": "Startseite",
+    "features": "Funktionen",
+    "demo": "Demo",
+    "testimonials": "Erfahrungsberichte",
+    "security": "Sicherheit"
+  },
+  "hero": {
+    "tagline": "KI-gestützte Cybersicherheit",
+    "title": {
+      "line1": "Schützen Sie Ihr Unternehmen mit",
+      "line2": "Intelligenter KI-Sicherheit"
+    },
+    "subtitle": "Stellen Sie in wenigen Minuten Cybersicherheit auf Unternehmensniveau bereit. Unser KI-Agent überwacht, erkennt und neutralisiert kontinuierlich Bedrohungen, während Sie sich auf Ihr Geschäft konzentrieren.",
+    "cta1": "Kostenlos testen",
+    "cta2": "Demo ansehen"
+  },
+  "features": {
+    "title": "Warum uns wählen",
+    "subtitle": "Umfassende Sicherheitslösungen, die auf Ihre Bedürfnisse zugeschnitten sind",
+    "items": [
+      {
+        "title": "KI-gestützte Bedrohungserkennung",
+        "description": "Fortschrittliche Machine-Learning-Algorithmen identifizieren und neutralisieren Bedrohungen in Echtzeit und lernen aus globalen Angriffsmustern."
+      },
+      {
+        "title": "Sofortiges Reaktionssystem",
+        "description": "Automatisierte Reaktion auf Vorfälle innerhalb von 30 Sekunden. Blockieren Sie Angriffe, bevor sie Schaden anrichten können."
+      },
+      {
+        "title": "24/7-Überwachung",
+        "description": "Kontinuierliche Überwachung Ihres Netzwerks, Ihrer Endgeräte und Ihrer Cloud-Infrastruktur ohne Ausfallzeiten."
+      },
+      {
+        "title": "Zero-Trust-Architektur",
+        "description": "Implementieren Sie unternehmensweite Zero-Trust-Sicherheitsrichtlinien mit intelligenten Zugriffskontrollen."
+      },
+      {
+        "title": "Bedrohungsinformationen",
+        "description": "Echtzeit-Bedrohungsinformationen von globalen Cybersicherheitsnetzwerken und Regierungsbehörden."
+      },
+      {
+        "title": "Verhaltensanalyse",
+        "description": "Fortschrittliche Analyse des Benutzer- und Entitätsverhaltens zur Erkennung von Insider-Bedrohungen und anomalen Aktivitäten."
+      },
+      {
+        "title": "Netzwerksicherheit",
+        "description": "Umfassender Netzwerkschutz mit Intrusion-Detection- und Prevention-Systemen."
+      },
+      {
+        "title": "Konformitätsbereit",
+        "description": "Integrierte Compliance-Rahmen für DSGVO, HIPAA, SOC 2 und andere Industriestandards."
+      }
+    ]
+  },
+  "testimonials": {
+    "title": "Was unsere Kunden sagen",
+    "subtitle": "Weltweit von Sicherheitsteams vertraut"
+  },
+  "security": {
+    "title": "Unternehmensweite Sicherheit",
+    "subtitle": "Entwickelt nach höchsten Sicherheitsstandards"
+  },
+  "footer": {
+    "company": {
+      "name": "DEG Shield AI",
+      "description": "Ein Produkt der DEG Security GmbH"
+    },
+    "about": "Cybersicherheitslösungen für deutsche und europäische Unternehmen, die Compliance mit NIS2, DSGVO und deutschen Sicherheitsstandards gewährleisten.",
+    "product": "Produkt",
+    "companyMenu": "Unternehmen",
+    "resources": "Ressourcen",
+    "contact": "Kontakt",
+    "rights": "Alle Rechte vorbehalten.",
+    "privacy": "Datenschutzerklärung",
+    "terms": "Nutzungsbedingungen"
+  }
+}

@@ -1,10 +1,16 @@
-import React, { useState, useEffect } from 'react';
-import { Shield, Menu, X, ChevronDown } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
+import { Shield, Menu, X } from 'lucide-react';
+import LanguageSwitcher from './LanguageSwitcher';
+
+interface NavItem {
+  name: string;
+  id: string;
+}
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isProductDropdownOpen, setIsProductDropdownOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,14 +23,15 @@ const Header = () => {
   const scrollTo = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
     setIsMobileMenuOpen(false);
-    setIsProductDropdownOpen(false);
   };
 
-  const productItems = [
-    { name: 'AI Agent Demo', id: 'demo' },
-    { name: 'Features', id: 'features' },
-    { name: 'Security', id: 'security' },
-    { name: 'Pricing', id: 'pricing' }
+  const { t } = useTranslation();
+  
+  const navItems: NavItem[] = [
+    { name: t('header.features'), id: 'features' },
+    { name: t('header.demo'), id: 'demo' },
+    { name: t('header.testimonials'), id: 'testimonials' },
+    { name: t('header.security'), id: 'security' }
   ];
 
   return (
@@ -37,95 +44,65 @@ const Header = () => {
         <div className="flex justify-between items-center h-20">
           <div className="flex items-center space-x-2">
             <Shield className="h-8 w-8 text-blue-400" />
-            <span className="text-xl font-bold text-white">CyberGuard AI</span>
+            <span className="text-xl font-bold text-white">DEG Shield AI</span>
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-8">
-            <div className="relative">
+          <nav className="hidden md:flex items-center space-x-8">
+            {navItems.map((item: NavItem) => (
               <button
-                onClick={() => setIsProductDropdownOpen(!isProductDropdownOpen)}
-                className="flex items-center text-gray-300 hover:text-white transition-colors duration-200"
-              >
-                Product
-                <ChevronDown className={`ml-1 h-4 w-4 transition-transform duration-200 ${
-                  isProductDropdownOpen ? 'rotate-180' : ''
-                }`} />
-              </button>
-              
-              {isProductDropdownOpen && (
-                <div className="absolute top-full left-0 mt-2 w-48 bg-gray-900/95 backdrop-blur-xl border border-gray-700/50 rounded-2xl shadow-2xl py-2">
-                  {productItems.map((item) => (
-                    <button
-                      key={item.id}
-                      onClick={() => scrollTo(item.id)}
-                      className="block w-full text-left px-4 py-2 text-gray-300 hover:text-white hover:bg-gray-800/50 transition-colors duration-200"
-                    >
-                      {item.name}
-                    </button>
-                  ))}
-                </div>
-              )}
-            </div>
-            
-            {['About', 'Contact'].map((item) => (
-              <button
-                key={item}
-                onClick={() => scrollTo(item.toLowerCase())}
+                key={item.id}
+                onClick={() => scrollTo(item.id)}
                 className="text-gray-300 hover:text-white transition-colors duration-200"
               >
-                {item}
+                {item.name}
               </button>
             ))}
+            <LanguageSwitcher />
+            <button className="text-gray-300 hover:text-white transition-colors duration-200 px-4 py-2 rounded-full hover:bg-gray-800/30">
+              {t('header.signIn', 'Sign In')}
+            </button>
+            <button className="bg-gradient-to-r from-blue-500 to-cyan-400 text-white px-6 py-2 rounded-full font-medium hover:from-blue-600 hover:to-cyan-500 transition-all duration-200">
+              {t('header.getDemo', 'Get Demo')}
+            </button>
           </nav>
 
-          <div className="hidden md:flex items-center space-x-4">
-            <button className="text-gray-300 hover:text-white transition-colors duration-200 px-4 py-2 rounded-full hover:bg-gray-800/30">
-              Sign In
-            </button>
-            <button className="bg-gradient-to-r from-blue-500 to-cyan-400 text-white px-6 py-2 rounded-full hover:from-blue-600 hover:to-cyan-500 transition-all duration-200 shadow-lg">
-              Get Demo
+          {/* Mobile menu button */}
+          <div className="flex items-center md:hidden">
+            <button
+              className="md:hidden text-white p-2 rounded-full hover:bg-gray-800/30 transition-colors duration-200"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-expanded={isMobileMenuOpen ? 'true' : 'false'}
+              aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
+            >
+              {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
           </div>
-
-          {/* Mobile menu button */}
-          <button
-            className="md:hidden text-white p-2 rounded-full hover:bg-gray-800/30 transition-colors duration-200"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          >
-            {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-          </button>
         </div>
 
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
           <div className="md:hidden bg-gray-900/95 backdrop-blur-xl border-t border-gray-700/50 rounded-b-2xl">
             <div className="px-2 pt-2 pb-3 space-y-1">
-              {productItems.map((item) => (
+              {navItems.map((item) => (
                 <button
                   key={item.id}
                   onClick={() => scrollTo(item.id)}
-                  className="block px-3 py-2 text-gray-300 hover:text-white transition-colors duration-200 rounded-xl hover:bg-gray-800/30"
+                  className="block w-full text-left px-3 py-2 text-gray-300 hover:text-white transition-colors duration-200 rounded-xl hover:bg-gray-800/30"
                 >
                   {item.name}
                 </button>
               ))}
-              {['About', 'Contact'].map((item) => (
-                <button
-                  key={item}
-                  onClick={() => scrollTo(item.toLowerCase())}
-                  className="block px-3 py-2 text-gray-300 hover:text-white transition-colors duration-200 rounded-xl hover:bg-gray-800/30"
-                >
-                  {item}
-                </button>
-              ))}
-              <div className="pt-4 pb-2 space-y-2">
+              <div className="pt-4 pb-2 space-y-2 border-t border-gray-700/50 mt-2">
                 <button className="block w-full text-left px-3 py-2 text-gray-300 hover:text-white transition-colors duration-200 rounded-xl hover:bg-gray-800/30">
-                  Sign In
+                  {t('header.signIn', 'Sign In')}
                 </button>
-                <button className="block w-full bg-gradient-to-r from-blue-500 to-cyan-400 text-white px-3 py-2 rounded-full hover:from-blue-600 hover:to-cyan-500 transition-all duration-200">
-                  Get Demo
+                <button className="block w-full text-center bg-gradient-to-r from-blue-500 to-cyan-400 text-white px-3 py-2 rounded-full hover:from-blue-600 hover:to-cyan-500 transition-all duration-200">
+                  {t('header.getDemo', 'Get Demo')}
                 </button>
+                <div className="flex justify-center pt-2">
+                  <LanguageSwitcher />
+                </div>
               </div>
             </div>
           </div>
