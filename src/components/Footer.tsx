@@ -1,6 +1,8 @@
 import { Shield, Mail, Phone, MapPin, Twitter, Linkedin, Github, ShieldCheck, Lock, Cpu } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const Footer = () => {
+  const { t } = useTranslation();
   const complianceBadges = [
     { 
       label: 'NIS 2', 
@@ -47,15 +49,11 @@ const Footer = () => {
           {/* Company info */}
           <div className="md:col-span-1">
             <div className="flex items-start space-x-3 mb-4">
-              <MapPin className="h-5 w-5 text-gray-400 mt-1" />
-              <div>
-                <p className="text-gray-400">123 Example Street</p>
-                <p className="text-gray-400">10115 Berlin, Germany</p>
-              </div>
+              <Shield className="h-8 w-8 text-blue-400" />
+              <span className="text-xl font-bold text-white">{t('footer.company.name')}</span>
             </div>
-            <p className="text-gray-400 mb-6 leading-relaxed">
-              Cybersecurity solutions for German and European companies,
-              ensuring compliance with NIS2, GDPR, and German security standards.
+            <p className="text-gray-400 text-sm mb-4">
+              {t('footer.about')}
             </p>
             <div className="flex space-x-4">
               <a href="#" aria-label="Twitter" className="text-gray-400 hover:text-white transition-colors duration-200">
@@ -72,35 +70,29 @@ const Footer = () => {
 
           {/* Product */}
           <div>
-            <h3 className="text-white font-semibold mb-4">Resources</h3>
-            <ul className="space-y-3">
-              {['Features', 'Security', 'Pricing', 'API Documentation', 'Integrations', 'Changelog'].map((item) => (
-                <li key={item}>
-                  <a href="#" className="text-gray-400 hover:text-white transition-colors duration-200">
-                    {item}
-                  </a>
-                </li>
-              ))}
+            <h3 className="text-white font-semibold mb-4">{t('footer.resources')}</h3>
+            <ul className="space-y-2">
+              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Documentation</a></li>
+              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Guides</a></li>
+              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">API Status</a></li>
+              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Help Center</a></li>
             </ul>
           </div>
 
           {/* Company */}
           <div>
-            <h3 className="text-white font-semibold mb-4">Company</h3>
-            <ul className="space-y-3">
-              {['About Us', 'Careers', 'Blog', 'Press', 'Partners', 'Contact'].map((item) => (
-                <li key={item}>
-                  <a href="#" className="text-gray-400 hover:text-white transition-colors duration-200">
-                    {item}
-                  </a>
-                </li>
-              ))}
+            <h3 className="text-white font-semibold mb-4">{t('footer.product')}</h3>
+            <ul className="space-y-2">
+              <li><a href="#features" className="text-gray-400 hover:text-white transition-colors">{t('header.features')}</a></li>
+              <li><a href="#pricing" className="text-gray-400 hover:text-white transition-colors">Pricing</a></li>
+              <li><a href="#security" className="text-gray-400 hover:text-white transition-colors">{t('header.security')}</a></li>
+              <li><a href="#faq" className="text-gray-400 hover:text-white transition-colors">FAQ</a></li>
             </ul>
           </div>
 
           {/* Contact */}
           <div>
-            <h3 className="text-white font-semibold mb-4">Contact</h3>
+            <h3 className="text-white font-semibold mb-4">{t('footer.contact')}</h3>
             <ul className="space-y-4">
               <li className="flex items-start">
                 <MapPin className="h-5 w-5 text-gray-400 mr-3 mt-0.5 flex-shrink-0" />
@@ -117,7 +109,7 @@ const Footer = () => {
             </ul>
             
             <div className="mt-8">
-              <h4 className="text-white font-semibold text-lg mb-4">Our Certifications & Compliance</h4>
+              <h4 className="text-white font-semibold text-lg mb-4">{t('footer.certifications')}</h4>
               <div className="space-y-4">
                 {complianceBadges.slice(0, 4).map((badge, index) => {
                   const Icon = badge.icon;
@@ -135,7 +127,7 @@ const Footer = () => {
                 })}
               </div>
               <div className="mt-4 pt-4 border-t border-gray-800">
-                <p className="text-xs text-gray-500 mb-3">Additional Compliance:</p>
+                <p className="text-xs text-gray-500 mb-3">{t('footer.additionalCompliance')}</p>
                 <div className="flex flex-wrap gap-2">
                   {complianceBadges.slice(4).map((badge, index) => (
                     <span 
@@ -152,42 +144,20 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Compliance Notice */}
-        <div className="mt-12 p-6 bg-gray-800/50 rounded-xl border border-gray-700">
-          <h4 className="text-white font-semibold mb-3">Compliance Notice</h4>
-          <p className="text-gray-300 text-sm mb-4">
-            DEG Shield AI is fully compliant with NIS 2 Directive requirements for cybersecurity and incident reporting, 
-            and adheres to GDPR regulations for data protection and privacy. Our solutions help your organization meet 
-            regulatory requirements with automated compliance reporting and documentation.
-          </p>
-          <div className="flex flex-wrap gap-3">
-            <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-900/30 text-blue-200 border border-blue-800">
-              <ShieldCheck className="h-3 w-3 mr-1.5" /> NIS 2 Compliant
-            </span>
-            <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-purple-900/30 text-purple-200 border border-purple-800">
-              <Lock className="h-3 w-3 mr-1.5" /> GDPR Compliant
-            </span>
-          </div>
-        </div>
-
         {/* Bottom section */}
         <div className="border-t border-gray-800 mt-8 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-gray-500 text-sm mb-4 md:mb-0">
-              © 2024 DEG Shield AI GmbH. Alle Rechte vorbehalten.
+            <p className="text-gray-400 text-sm">
+              © {new Date().getFullYear()} {t('footer.company.name')}. {t('footer.rights')}
             </p>
-            <div className="flex flex-wrap justify-center gap-4 md:gap-6">
-              <a href="#" className="text-gray-500 hover:text-white text-sm transition-colors duration-200">
-                Datenschutzerklärung
+            <div className="flex space-x-6 mt-4 md:mt-0">
+              <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                <span className="sr-only">{t('footer.privacy')}</span>
+                {t('footer.privacy')}
               </a>
-              <a href="#" className="text-gray-500 hover:text-white text-sm transition-colors duration-200">
-                Impressum
-              </a>
-              <a href="#" className="text-gray-500 hover:text-white text-sm transition-colors duration-200">
-                AGB
-              </a>
-              <a href="#" className="text-gray-500 hover:text-white text-sm transition-colors duration-200">
-                Cookie-Richtlinie
+              <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                <span className="sr-only">{t('footer.terms')}</span>
+                {t('footer.terms')}
               </a>
             </div>
           </div>

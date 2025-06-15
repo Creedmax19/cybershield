@@ -1,4 +1,10 @@
 {
+  "language": {
+    "banner": "Would you like to view this site in your language?",
+    "switchToGerman": "Deutsch",
+    "switchToEnglish": "English",
+    "noThanks": "No thanks"
+  },
   "header": {
     "home": "Home",
     "features": "Features",
@@ -15,6 +21,36 @@
     "subtitle": "Deploy enterprise-grade cybersecurity in minutes. Our AI agent continuously monitors, detects, and neutralizes threats while you focus on growing your business.",
     "cta1": "Start Free Trial",
     "cta2": "Watch Demo"
+  },
+  "testimonials": {
+    "title": "What Our Customers Say",
+    "subtitle": "Trusted by security teams worldwide",
+    "items": [
+      {
+        "name": "Sarah Chen",
+        "title": "CTO, TechFlow Solutions",
+        "company": "125 employees",
+        "content": "DEG Shield AI saved us from a ransomware attack that could have shut us down for weeks. The ROI was immediate and the peace of mind is priceless."
+      },
+      {
+        "name": "Michael Rodriguez",
+        "title": "CEO, Rodriguez Manufacturing",
+        "company": "85 employees",
+        "content": "We went from constant security worries to completely hands-off protection. The AI catches threats we never would have seen coming."
+      },
+      {
+        "name": "Lisa Thompson",
+        "title": "Operations Director, MedCare Plus",
+        "company": "200 employees",
+        "content": "HIPAA compliance was a nightmare before DEG Shield AI. Now we're not just compliant, we're ahead of the curve on security standards."
+      },
+      {
+        "name": "David Kim",
+        "title": "IT Manager, Kim & Associates",
+        "company": "45 employees",
+        "content": "The setup took literally 20 minutes. We've blocked over 2,000 threats in the first month alone. This is enterprise security made simple."
+      }
+    ]
   },
   "features": {
     "title": "Why Choose Us",
@@ -54,13 +90,91 @@
       }
     ]
   },
-  "testimonials": {
-    "title": "What Our Clients Say",
-    "subtitle": "Trusted by security teams worldwide"
-  },
   "security": {
     "title": "Enterprise-Grade Security",
-    "subtitle": "Built with the highest security standards in mind"
+    "subtitle": "Built with the highest security standards in mind",
+    "threatTypes": [
+      "Malware & Ransomware",
+      "Phishing Attacks",
+      "DDoS Attacks",
+      "Insider Threats",
+      "Zero-Day Exploits",
+      "Social Engineering"
+    ],
+    "dashboard": {
+      "title": "Security Dashboard",
+      "activeProtection": "Active Protection",
+      "alerts": {
+        "malwareBlocked": "Blocked Malware Attempt",
+        "suspiciousLogin": "Suspicious Login Detected",
+        "scoreImproved": "Security Score Improved",
+        "workstation": "workstation-05 • 2 minutes ago",
+        "adminLogin": "admin@company.com • 5 minutes ago",
+        "networkHardening": "Network hardening completed"
+      },
+      "metrics": {
+        "threatsBlocked": "Threats Blocked",
+        "securityScore": "Security Score"
+      },
+      "headings": {
+        "stopThreats": "Stop Cyber Threats <1>Before They Start</1>",
+        "threatsWeNeutralize": "Threats We Neutralize:",
+        "costOfInaction": "The Cost of Doing Nothing"
+      },
+      "statistics": [
+        "Average ransomware payment: $812,000",
+        "Business downtime: 22 days average",
+        "Customer trust lost: 60% never return",
+        "Compliance fines: Up to €10M or 2% of global turnover under GDPR"
+      ],
+      "cta": "Get Protection Now",
+      "compliance": {
+        "title": "EU & German Compliance",
+        "gdpr": "GDPR Compliant",
+        "nis2": "NIS2 Ready",
+        "bsi": "BSI Standards"
+      }
+    }
+  },
+  "demo": {
+    "title": "See DEG Shield AI <1>In Action</1>",
+    "subtitle": "Watch how our AI security platform detects and neutralizes threats in real-time",
+    "steps": [
+      {
+        "title": "Threat Detection",
+        "description": "AI identifies suspicious network activity",
+        "status": "scanning",
+        "details": "Analyzing 2.3M network packets per second"
+      },
+      {
+        "title": "Threat Analysis",
+        "description": "Advanced ML algorithms classify the threat",
+        "status": "analyzing",
+        "details": "Malware signature detected: Trojan.Win32.Agent"
+      },
+      {
+        "title": "Instant Response",
+        "description": "Automated containment and neutralization",
+        "status": "blocking",
+        "details": "Threat isolated and quarantined in 0.3 seconds"
+      },
+      {
+        "title": "Threat Neutralized",
+        "description": "System secured, incident logged",
+        "status": "secured",
+        "details": "Network integrity restored, zero data loss"
+      }
+    ],
+    "controls": {
+      "play": "Play",
+      "pause": "Pause",
+      "previous": "Previous",
+      "next": "Next"
+    },
+    "status": {
+      "live": "LIVE",
+      "demo": "DEMO"
+    }
   },
   "footer": {
     "company": {

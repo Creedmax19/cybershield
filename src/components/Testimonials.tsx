@@ -1,36 +1,39 @@
 import { Star, Quote } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const Testimonials = () => {
+  const { t } = useTranslation();
+  
   const testimonials = [
     {
-      name: "Sarah Chen",
-      title: "CTO, TechFlow Solutions",
-      company: "125 employees",
-      content: "DEG Shield AI saved us from a ransomware attack that could have shut us down for weeks. The ROI was immediate and the peace of mind is priceless.",
+      name: t('testimonials.items.0.name'),
+      title: t('testimonials.items.0.title'),
+      company: t('testimonials.items.0.company'),
+      content: t('testimonials.items.0.content'),
       rating: 5,
       image: "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop"
     },
     {
-      name: "Michael Rodriguez",
-      title: "CEO, Rodriguez Manufacturing",
-      company: "85 employees",
-      content: "We went from constant security worries to completely hands-off protection. The AI catches threats we never would have seen coming.",
+      name: t('testimonials.items.1.name'),
+      title: t('testimonials.items.1.title'),
+      company: t('testimonials.items.1.company'),
+      content: t('testimonials.items.1.content'),
       rating: 5,
       image: "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop"
     },
     {
-      name: "Lisa Thompson",
-      title: "Operations Director, MedCare Plus",
-      company: "200 employees",
-      content: "HIPAA compliance was a nightmare before DEG Shield AI. Now we're not just compliant, we're ahead of the curve on security standards.",
+      name: t('testimonials.items.2.name'),
+      title: t('testimonials.items.2.title'),
+      company: t('testimonials.items.2.company'),
+      content: t('testimonials.items.2.content'),
       rating: 5,
       image: "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop"
     },
     {
-      name: "David Kim",
-      title: "IT Manager, Kim & Associates",
-      company: "45 employees",
-      content: "The setup took literally 20 minutes. We've blocked over 2,000 threats in the first month alone. This is enterprise security made simple.",
+      name: t('testimonials.items.3.name'),
+      title: t('testimonials.items.3.title'),
+      company: t('testimonials.items.3.company'),
+      content: t('testimonials.items.3.content'),
       rating: 5,
       image: "https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop"
     }
@@ -38,6 +41,16 @@ const Testimonials = () => {
 
   return (
     <section id="testimonials" className="relative py-24 overflow-hidden bg-gray-900">
+      {/* Section Header */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-16">
+        <h2 className="text-3xl font-extrabold text-white sm:text-4xl">
+          {t('testimonials.title')}
+        </h2>
+        <p className="mt-3 max-w-2xl mx-auto text-xl text-gray-300 sm:mt-4">
+          {t('testimonials.subtitle')}
+        </p>
+      </div>
+      
       {/* Enhanced Grid Background */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-grid opacity-30"></div>

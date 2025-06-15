@@ -1,4 +1,10 @@
 {
+  "language": {
+    "banner": "Möchten Sie diese Website in Ihrer Sprache anzeigen?",
+    "switchToGerman": "Deutsch",
+    "switchToEnglish": "Englisch",
+    "noThanks": "Nein danke"
+  },
   "header": {
     "home": "Startseite",
     "features": "Funktionen",
@@ -56,11 +62,119 @@
   },
   "testimonials": {
     "title": "Was unsere Kunden sagen",
-    "subtitle": "Weltweit von Sicherheitsteams vertraut"
+    "subtitle": "Weltweit von Sicherheitsteams vertraut",
+    "items": [
+      {
+        "name": "Sarah Chen",
+        "title": "CTO, TechFlow Solutions",
+        "company": "125 Mitarbeiter",
+        "content": "DEG Shield AI hat uns vor einem Ransomware-Angriff gerettet, der uns wochenlang hätte lahmlegen können. Die Amortisation war sofort spürbar und die gewonnene Ruhe ist unbezahlbar."
+      },
+      {
+        "name": "Michael Rodriguez",
+        "title": "Geschäftsführer, Rodriguez Manufacturing",
+        "company": "85 Mitarbeiter",
+        "content": "Wir sind von ständigen Sicherheitsbedenken zu einem vollständig automatisierten Schutz übergegangen. Die KI erkennt Bedrohungen, die wir niemals bemerkt hätten."
+      },
+      {
+        "name": "Lisa Thompson",
+        "title": "Betriebsleiterin, MedCare Plus",
+        "company": "200 Mitarbeiter",
+        "content": "HIPAA-Konformität war vor DEG Shield AI ein Albtraum. Jetzt sind wir nicht nur konform, sondern liegen bei den Sicherheitsstandards vorne."
+      },
+      {
+        "name": "David Kim",
+        "title": "IT-Leiter, Kim & Partner",
+        "company": "45 Mitarbeiter",
+        "content": "Die Einrichtung dauerte buchstäblich 20 Minuten. Wir haben im ersten Monat über 2.000 Bedrohungen blockiert. Das ist Unternehmenssicherheit, einfach gemacht."
+      }
+    ]
   },
   "security": {
     "title": "Unternehmensweite Sicherheit",
-    "subtitle": "Entwickelt nach höchsten Sicherheitsstandards"
+    "subtitle": "Entwickelt nach höchsten Sicherheitsstandards",
+    "threatTypes": [
+      "Malware & Ransomware",
+      "Phishing-Angriffe",
+      "DDoS-Angriffe",
+      "Insider-Bedrohungen",
+      "Zero-Day-Exploits",
+      "Social Engineering"
+    ],
+    "dashboard": {
+      "title": "Sicherheits-Dashboard",
+      "activeProtection": "Aktiver Schutz",
+      "alerts": {
+        "malwareBlocked": "Malware-Versuch blockiert",
+        "suspiciousLogin": "Verdächtige Anmeldung erkannt",
+        "scoreImproved": "Sicherheitsbewertung verbessert",
+        "workstation": "Arbeitsplatz-05 • vor 2 Minuten",
+        "adminLogin": "admin@firma.de • vor 5 Minuten",
+        "networkHardening": "Netzwerkhärtung abgeschlossen"
+      },
+      "metrics": {
+        "threatsBlocked": "Blockierte Bedrohungen",
+        "securityScore": "Sicherheitsbewertung"
+      },
+      "headings": {
+        "stopThreats": "Stoppen Sie Cyber-Bedrohungen <1>bevor sie entstehen</1>",
+        "threatsWeNeutralize": "Bedrohungen, die wir neutralisieren:",
+        "costOfInaction": "Die Kosten des Nichtstuns"
+      },
+      "statistics": [
+        "Durchschnittliche Lösegeldforderung: 760.000 €",
+        "Betriebsunterbrechung: Durchschnittlich 22 Tage",
+        "Kundenvertrauen: 60 % kehren nie zurück",
+        "Compliance-Strafen: Bis zu 10 Mio. € oder 2 % des weltweiten Umsatzes gemäß DSGVO"
+      ],
+      "cta": "Jetzt schützen lassen",
+      "compliance": {
+        "title": "EU- & Deutsche Compliance",
+        "gdpr": "DSGVO-konform",
+        "nis2": "NIS2-bereit",
+        "bsi": "BSI-Standards"
+      }
+    }
+  },
+  "demo": {
+    "title": "Sehen Sie DEG Shield AI <1>in Aktion</1>",
+    "subtitle": "Sehen Sie, wie unsere KI-Sicherheitsplattform Bedrohungen in Echtzeit erkennt und neutralisiert",
+    "steps": [
+      {
+        "title": "Bedrohungserkennung",
+        "description": "KI erkennt verdächtige Netzwerkaktivitäten",
+        "status": "scannt",
+        "details": "Analysiere 2,3 Mio. Netzwerkpakete pro Sekunde"
+      },
+      {
+        "title": "Bedrohungsanalyse",
+        "description": "Fortschrittliche ML-Algorithmen klassifizieren die Bedrohung",
+        "status": "analysiert",
+        "details": "Malware-Signatur erkannt: Trojan.Win32.Agent"
+      },
+      {
+        "title": "Sofortige Reaktion",
+        "description": "Automatisierte Eindämmung und Neutralisierung",
+        "status": "blockiert",
+        "details": "Bedrohung in 0,3 Sekunden isoliert und unter Quarantäne gestellt"
+      },
+      {
+        "title": "Bedrohung neutralisiert",
+        "description": "System gesichert, Vorfall protokolliert",
+        "status": "gesichert",
+        "details": "Netzwerkintegrität wiederhergestellt, keine Datenverluste"
+      }
+    ],
+    "controls": {
+      "play": "Abspielen",
+      "pause": "Pause",
+      "previous": "Zurück",
+      "next": "Weiter"
+    },
+    "status": {
+      "live": "LIVE",
+      "demo": "DEMO"
+    }
   },
   "footer": {
     "company": {

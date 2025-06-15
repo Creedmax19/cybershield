@@ -1,53 +1,74 @@
 import { useState, useEffect } from 'react';
-import { Shield, Eye, Zap, AlertTriangle, CheckCircle, Play, Pause, Brain } from 'lucide-react';
+import { useTranslation, Trans } from 'react-i18next';
+import { Shield, Eye, Zap, AlertTriangle, CheckCircle, Brain } from 'lucide-react';
 
 type DemoStep = {
   title: string;
   description: string;
-  icon: React.ComponentType<{ className?: string }>;
   status: string;
   details: string;
   color: string;
+  icon: React.ComponentType<{ className?: string }>;
+};
+
+type TranslatedStep = {
+  title: string;
+  description: string;
+  status: string;
+  details: string;
+  color?: string;
+  icon: string;
+};
+
+const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
+  Shield,
+  Eye,
+  Zap,
+  AlertTriangle,
+  CheckCircle,
+  Brain
 };
 
 const Demo = () => {
+  const { t } = useTranslation();
   const [currentStep, setCurrentStep] = useState(0);
-  const [isPlaying, setIsPlaying] = useState(true);
+  const [isPlaying, setIsPlaying] = useState<boolean>(true);
 
-  const demoSteps: DemoStep[] = [
-    {
-      title: "Threat Detection",
-      description: "AI identifies suspicious network activity",
-      icon: Eye,
-      status: "scanning",
-      details: "Analyzing 2.3M network packets per second",
-      color: "blue"
-    },
-    {
-      title: "Threat Analysis",
-      description: "Advanced ML algorithms classify the threat",
-      icon: Brain,
-      status: "analyzing",
-      details: "Malware signature detected: Trojan.Win32.Agent",
-      color: "yellow"
-    },
-    {
-      title: "Instant Response",
-      description: "Automated containment and neutralization",
-      icon: Shield,
-      status: "blocking",
-      details: "Threat isolated and quarantined in 0.3 seconds",
-      color: "red"
-    },
-    {
-      title: "Threat Neutralized",
-      description: "System secured, incident logged",
-      icon: CheckCircle,
-      status: "secured",
-      details: "Network integrity restored, zero data loss",
-      color: "green"
-    }
-  ];
+  // Get translated steps with type safety
+  const translatedSteps = t('demo.steps', { returnObjects: true }) as unknown as TranslatedStep[];
+  
+  // Map translated steps to DemoStep with icons and proper typing
+  const demoSteps: DemoStep[] = translatedSteps.map((step, index) => {
+    // Default color sequence if not provided in translation
+    const colors = ["blue", "yellow", "red", "green"];
+    const iconNames = ["Eye", "Brain", "Shield", "CheckCircle"];
+    
+    // Get the icon component, falling back to a default if not found
+    const iconKey = step.icon || iconNames[index];
+    const IconComponent = iconKey ? (iconMap[iconKey] || Shield) : Shield;
+    
+    // Create the step object with proper typing
+    const demoStep: DemoStep = {
+      title: step.title,
+      description: step.description,
+      status: step.status,
+      details: step.details,
+      color: step.color || colors[index % colors.length],
+      icon: IconComponent
+    };
+    
+    return demoStep;
+  });
+  
+  // Toggle play/pause state with proper type annotation
+  const togglePlayPause = (): void => {
+    setIsPlaying(prev => !prev);
+  };
+  
+  // Get play/pause aria label based on current state
+  const getPlayPauseLabel = (): string => {
+    return isPlaying ? t('demo.controls.pause') : t('demo.controls.play');
+  };
 
   useEffect(() => {
     if (!isPlaying) return;
@@ -97,24 +118,11 @@ const Demo = () => {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-white mb-4">
-            See DEG Shield AI <span className="text-blue-400">In Action</span>
+            <Trans i18nKey="demo.title" components={{ 1: <span className="text-blue-400" /> }} />
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
-            Watch our AI agent detect, analyze, and neutralize a real cyber threat in under 30 seconds.
-            This is what happens behind the scenes to keep your business safe.
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+            {t('demo.subtitle')}
           </p>
-          
-          <button
-            onClick={() => setIsPlaying(!isPlaying)}
-            className={`inline-flex items-center px-6 py-3 rounded-full font-semibold transition-all duration-200 ${
-              isPlaying 
-                ? 'bg-red-500/20 border border-red-500/30 text-red-400 hover:bg-red-500/30' 
-                : 'bg-green-500/20 border border-green-500/30 text-green-400 hover:bg-green-500/30'
-            }`}
-          >
-            {isPlaying ? <Pause className="h-5 w-5 mr-2" /> : <Play className="h-5 w-5 mr-2" />}
-            {isPlaying ? 'Pause Demo' : 'Play Demo'}
-          </button>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -125,7 +133,7 @@ const Demo = () => {
                 <h3 className="text-xl font-semibold text-white">DEG Shield AI Dashboard</h3>
                 <div className="flex items-center space-x-2">
                   <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
-                  <span className="text-green-400 text-sm">Live Protection</span>
+                  <span className="text-green-400 text-sm">{t('demo.status.live')}</span>
                 </div>
               </div>
 
@@ -166,7 +174,14 @@ const Demo = () => {
                         </div>
                       </div>
                       {index <= currentStep && (
-                        <CheckCircle className="h-5 w-5 text-green-400" />
+                        <button 
+                          type="button"
+                          onClick={togglePlayPause}
+                          className="p-1 rounded-full hover:bg-white/10 transition-colors"
+                          aria-label={getPlayPauseLabel()}
+                        >
+                          <CheckCircle className="h-5 w-5 text-green-400" />
+                        </button>
                       )}
                     </div>
                   );
@@ -179,11 +194,10 @@ const Demo = () => {
           <div>
             <div className="mb-8">
               <h3 className="text-3xl font-bold text-white mb-4">
-                Real-Time Threat Response
+                {t('demo.realTimeThreatResponse')}
               </h3>
               <p className="text-lg text-gray-300 mb-6">
-                This simulation shows how DEG Shield AI handles a typical malware attack. 
-                In reality, this entire process happens automatically without any human intervention.
+                {t('demo.realTimeThreatResponseDescription')}
               </p>
             </div>
 
@@ -191,22 +205,20 @@ const Demo = () => {
               <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-2xl p-6">
                 <div className="flex items-center mb-3">
                   <Zap className="h-6 w-6 text-yellow-400 mr-3" />
-                  <h4 className="text-lg font-semibold text-white">Lightning Fast</h4>
+                  <h4 className="text-lg font-semibold text-white">{t('demo.lightningFast')}</h4>
                 </div>
                 <p className="text-gray-300">
-                  Average response time of 0.3 seconds from detection to neutralization. 
-                  Faster than any human security team could ever respond.
+                  {t('demo.lightningFastDescription')}
                 </p>
               </div>
 
               <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-2xl p-6">
                 <div className="flex items-center mb-3">
                   <Brain className="h-6 w-6 text-purple-400 mr-3" />
-                  <h4 className="text-lg font-semibold text-white">AI-Powered Intelligence</h4>
+                  <h4 className="text-lg font-semibold text-white">{t('demo.aiPoweredIntelligence')}</h4>
                 </div>
                 <p className="text-gray-300">
-                  Machine learning models trained on millions of threat patterns 
-                  ensure 99.9% accuracy in threat identification.
+                  {t('demo.aiPoweredIntelligenceDescription')}
                 </p>
               </div>
 

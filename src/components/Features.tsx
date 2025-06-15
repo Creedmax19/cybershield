@@ -1,52 +1,54 @@
 import { Brain, Zap, Eye, Lock, AlertTriangle, Cpu, Network, Shield } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const Features = () => {
+  const { t } = useTranslation();
+  
   const features = [
     {
       icon: Brain,
-      title: "AI-Powered Threat Detection",
-      description: "Advanced machine learning algorithms identify and neutralize threats in real-time, learning from global attack patterns."
+      title: t('features.items.0.title'),
+      description: t('features.items.0.description')
     },
     {
       icon: Zap,
-      title: "Instant Response System",
-      description: "Automated incident response within 30 seconds. Block attacks before they can cause damage to your systems."
+      title: t('features.items.1.title'),
+      description: t('features.items.1.description')
     },
     {
       icon: Eye,
-      title: "24/7 Monitoring",
-      description: "Continuous surveillance of your network, endpoints, and cloud infrastructure with zero downtime."
+      title: t('features.items.2.title'),
+      description: t('features.items.2.description')
     },
     {
       icon: Lock,
-      title: "Zero-Trust Architecture",
-      description: "Implement enterprise-grade zero-trust security policies with intelligent access controls."
+      title: t('features.items.3.title'),
+      description: t('features.items.3.description')
     },
     {
       icon: AlertTriangle,
-      title: "Threat Intelligence",
-      description: "Real-time threat intelligence from global cybersecurity networks and government agencies."
+      title: t('features.items.4.title'),
+      description: t('features.items.4.description')
     },
     {
       icon: Cpu,
-      title: "Behavioral Analysis",
-      description: "Advanced user and entity behavior analytics to detect insider threats and anomalous activities."
+      title: t('features.items.5.title'),
+      description: t('features.items.5.description')
     },
     {
       icon: Network,
-      title: "Network Security",
-      description: "Comprehensive network protection with intrusion detection and prevention systems."
+      title: t('features.items.6.title'),
+      description: t('features.items.6.description')
     },
     {
       icon: Shield,
-      title: "Compliance Ready",
-      description: "Built-in compliance frameworks for GDPR, HIPAA, SOC 2, and other industry standards."
+      title: t('features.items.7.title'),
+      description: t('features.items.7.description')
     }
   ];
 
   return (
     <section id="features" className="relative py-24 overflow-hidden bg-gray-900">
-      {/* Enhanced Grid Background */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-grid opacity-30"></div>
         <div className="absolute inset-0 bg-gradient-to-br from-gray-900/85 via-gray-900/60 to-gray-900/85"></div>
@@ -89,10 +91,10 @@ const Features = () => {
         {/* Section header */}
         <div className="text-center mb-20">
           <span className="inline-block px-3 py-1 bg-blue-900/30 text-blue-400 text-sm font-medium rounded-full mb-4">
-            Why Choose Us
+            {t('features.title')}
           </span>
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Enterprise Security, <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">SME Simple</span>
+            {t('features.subtitle')}
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-cyan-500 mx-auto mb-6"></div>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
