@@ -15,8 +15,10 @@ const Pricing = () => {
         "Email support",
         "Monthly security reports",
         "Malware protection",
-        "Basic firewall"
+        "Basic firewall",
+        "GDPR Readiness Assessment"
       ],
+      compliance: ["GDPR"],
       popular: false,
       cta: "Start Free Trial"
     },
@@ -34,14 +36,18 @@ const Pricing = () => {
         "Advanced threat hunting",
         "Network security",
         "Compliance dashboards",
-        "Priority support"
+        "Priority support",
+        "GDPR Compliance Package",
+        "NIS 2 Readiness Assessment",
+        "Data Protection Impact Assessments"
       ],
+      compliance: ["GDPR", "NIS 2"],
       popular: true,
       cta: "Get Started"
     },
     {
       name: "Enterprise",
-      price: "499",
+      price: "Custom",
       period: "month",
       description: "Complete security for established businesses",
       features: [
@@ -52,10 +58,15 @@ const Pricing = () => {
         "Daily security briefings",
         "Advanced threat intelligence",
         "Zero-trust architecture",
-        "Custom compliance",
+        "Custom compliance reporting",
         "Penetration testing",
-        "White-glove onboarding"
+        "White-glove onboarding",
+        "Full GDPR & NIS 2 Compliance",
+        "Dedicated DPO Support",
+        "Custom Security Training",
+        "Quarterly Compliance Audits"
       ],
+      compliance: ["GDPR", "NIS 2", "ISO 27001", "C5"],
       popular: false,
       cta: "Contact Sales"
     }
@@ -106,9 +117,26 @@ const Pricing = () => {
                 <h3 className="text-2xl font-bold text-white mb-2">{plan.name}</h3>
                 <p className="text-gray-400 mb-4">{plan.description}</p>
                 <div className="mb-6">
-                  <span className="text-4xl font-bold text-white">${plan.price}</span>
-                  <span className="text-gray-400">/{plan.period}</span>
+                  <span className="text-4xl font-bold text-white">
+                    {plan.price === 'Custom' ? 'Custom' : `$${plan.price}`}
+                  </span>
+                  {plan.price !== 'Custom' && (
+                    <span className="text-gray-400">/{plan.period}</span>
+                  )}
                 </div>
+                {/* Compliance Badges */}
+                {plan.compliance && plan.compliance.length > 0 && (
+                  <div className="flex flex-wrap justify-center gap-2 mb-4">
+                    {plan.compliance.map((item, idx) => (
+                      <span 
+                        key={idx}
+                        className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-900/50 text-blue-100 border border-blue-700/50"
+                      >
+                        {item}
+                      </span>
+                    ))}
+                  </div>
+                )}
                 <button className={`w-full py-3 px-6 rounded-full font-semibold transition-all duration-200 ${
                   plan.popular
                     ? 'bg-gradient-to-r from-blue-500 to-cyan-400 text-white hover:from-blue-600 hover:to-cyan-500'
@@ -133,9 +161,29 @@ const Pricing = () => {
         {/* Additional info */}
         <div className="mt-16 text-center">
           <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-3xl p-8 max-w-4xl mx-auto">
-            <div className="flex items-center justify-center mb-4">
-              <Zap className="h-6 w-6 text-yellow-400 mr-2" />
-              <h3 className="text-xl font-semibold text-white">Implementation Guarantee</h3>
+            <div className="flex flex-col items-center mb-6 text-center">
+              <div className="flex items-center mb-2">
+                <Zap className="h-6 w-6 text-yellow-400 mr-2" />
+                <h3 className="text-xl font-semibold text-white">Implementation & Compliance Guarantee</h3>
+              </div>
+              <p className="text-gray-300 max-w-2xl">
+                We ensure full compliance with NIS 2, GDPR, and other regulatory requirements, with deployment in as little as 24 hours.
+              </p>
+            </div>
+            
+            {/* Compliance Badges */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+              {[
+                { name: 'GDPR', desc: 'EU Data Protection' },
+                { name: 'NIS 2', desc: 'Cybersecurity Directive' },
+                { name: 'ISO 27001', desc: 'Security Standard' },
+                { name: 'C5', desc: 'Cloud Compliance' }
+              ].map((item, idx) => (
+                <div key={idx} className="bg-gray-800/50 border border-gray-700 rounded-xl p-4 text-center">
+                  <div className="text-blue-400 font-bold text-lg mb-1">{item.name}</div>
+                  <div className="text-gray-400 text-sm">{item.desc}</div>
+                </div>
+              ))}
             </div>
             <p className="text-gray-300 mb-6">
               We guarantee full deployment within 24 hours or your first month is free. 

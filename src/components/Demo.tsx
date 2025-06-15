@@ -182,7 +182,7 @@ const Demo = () => {
                 Real-Time Threat Response
               </h3>
               <p className="text-lg text-gray-300 mb-6">
-                This simulation shows how CyberGuard AI handles a typical malware attack. 
+                This simulation shows how DEG Shield AI handles a typical malware attack. 
                 In reality, this entire process happens automatically without any human intervention.
               </p>
             </div>
